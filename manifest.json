@@ -2,5 +2,24 @@
     "name": "Getting Started Example",
     "description": "Build an Extension!",
     "version": "1.0",
-    "manifest_version": 3
+    "manifest_version": 3,
+    "background": {
+      },
+      "action": {
+        "default_popup": "popup.html"
+      },
+      "content_scripts": 
+    [
+        {
+             "matches": [ "https://www.okcupid.com/discover" ],
+            "js": ["iframe.js"],
+            "all_frames": true
+          }
+    ],
+    "host_permissions": ["<all_urls>"],
+    "permissions": ["storage","declarativeNetRequestWithHostAccess", "scripting", "webRequest"],
+    "web_accessible_resources": [{
+      "resources": ["iframer.html"],
+      "matches": ["<all_urls>"]
+    }]
   }
